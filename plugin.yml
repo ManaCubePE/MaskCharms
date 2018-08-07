@@ -1,0 +1,9 @@
+name: Charms
+main: Charms\Main
+version: 0.0.1
+api: [3.0.0, 4.0.0]
+
+commands:
+ charm:
+  description: "Gives the player 1 mask charm"
+  usage: "/charm"
