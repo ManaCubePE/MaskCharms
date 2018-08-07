@@ -49,10 +49,5 @@ class Main extends PluginBase implements Listener {
 					$item->setCustomName(TextFormat::RED . TextFormat::BOLD . "MASK CHARM");
 					$inv->addItem($item);
 					return true;
-		}
-	}
-
-	public function onDisable() : void {
-		$this->getLogger()->info(Main::PREFIX . "Oml");
 	}
 }
