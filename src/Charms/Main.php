@@ -39,49 +39,16 @@ class Main extends PluginBase implements Listener {
 
 	public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) : bool
 	{
-		$time = time();
-		$date = date('Y-m-d');
 		if ($sender instanceof Player) {
 			switch ($cmd->getName()) {
-				case "ctime":
-					$sender->sendMessage(Main::PREFIX . TextFormat::RED  . TextFormat::BOLD . "THE TIME IS " . $time);
-					return true;
-				case "iraindrop":
-					$sender->sendMessage(Main::PREFIX . TextFormat::RED . TextFormat::BOLD . "THIS PLUGIN IS MADE BY @IRAINDROP_ (THAT IS MY TWITTER)");
-					$sender->addTitle(TextFormat::RED . TextFormat::BOLD . "OOF");
-					$item = Item::get(264,0,100);
+				case "charms":
+					$sender->sendMessage(Main::PREFIX . TextFormat::RED . TextFormat::BOLD . "ENJOY YOUR MASK CHARM!");
+					$sender->addTitle(TextFormat::RED . TextFormat::BOLD . "TAP WITH THE ENCHANTED BOOK IN YOUR HAND FOR A RANDOM MASK!");
+					$item = Item::get(403,0,1);
 					$inv = $sender->getInventory();
-					$item->setCustomName("Diamond");
+					$item->setCustomName(TextFormat::RED . TextFormat::BOLD . "MASK CHARM");
 					$inv->addItem($item);
 					return true;
-				case "cdate":
-					$sender->sendMessage(Main::PREFIX . TextFormat::RED . TextFormat::BOLD . "THE DATE IS " . $date);
-					return true;
-				case "kit test":
-					$sender->addTitle(TextFormat::RED . TextFormat::BOLD . "KIT TEST");
-					$item = Item::get(264,0,100);
-					$inv = $sender->getInventory();
-					$item->setCustomName(TextFormat::RED . TextFormat::BOLD . "Diamond");
-					$item->setNamedTagEntry(new ListTag("ench"));
-					$inv->addItem($item);
-					$item = Item::get(1,0,100);
-					$inv = $sender->getInventory();
-					$item->setCustomName("Stone");
-					$inv->addItem($item);
-					return true;
-				case "ping":
-					$sender->sendMessage(TextFormat::RED . TextFormat::BOLD  .  "YOUR PING IS " . $sender->getPing() . "MS");
-					return true;
-			}
-		} else {
-			//Code for console
-		}
-	}
-
-	public function onJoin(PlayerJoinEvent $event){
-		$player = $event->getPlayer();
-		if($player instanceof Player) {
-		$player->getServer()->dispatchCommand($player, $this->getConfig()->get("ExecuteCommand"));
 		}
 	}
 
